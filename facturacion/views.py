@@ -14,7 +14,7 @@ def consulta_contacto(request):
         fc = form.consulta_contacto_frm(request.POST)
         if fc.is_valid():
             r = fc.cleaned_data['apellido_contacto']
-            listado = personas.objects.filter(apellido = r)
+            listado = personas.objects.filter(apellido__contains = r)
             try:
                 return render(request,'facturacion/facturalia_contacto_resp.html',{'formulario':fc,'lista':listado})
             except UnboundLocalError:
