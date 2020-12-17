@@ -21,7 +21,7 @@ class productos (models.Model):
         return 'Nombre: '+self.nombre+'   -   Precio: '+str(self.costo*self.margen)
 
 class empresas (models.Model):
-    nombre = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=30)
     razon_social = models.CharField(max_length=20)
     cuit = models.CharField(max_length=13)
     cond_afif = models.CharField(max_length=8)

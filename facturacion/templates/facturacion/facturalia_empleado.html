@@ -1,0 +1,41 @@
+{% extends 'facturacion/facturalia_Base.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Facturalia</title>
+        <meta charset="utf-8">
+    </head>  
+    <body>
+    {% block titulo %}
+    <h3>RR-HH: LISTADO DE EMPLEADOS</h3>
+    {% endblock%}
+    {% block contenido %}
+    <p>Ingrese Empleado</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{formulario}}
+        <input type="submit" value="Consultar">
+    </form>
+    <table>
+        <tr>
+            <th>Apellido</th>
+            <th>Nombre</th>
+            <th>Empresa</th>
+        </tr>
+        
+        {% for renglon in lista %}
+        {% if renglon.empleado %}
+        <tr>
+            <td>{{renglon.apellido}}</td>
+            <td>{{renglon.nombre}}</td>
+            <td>{{renglon.empresa}}</td>
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+    {% endblock%}
+    
+    </body>
+
+</html>

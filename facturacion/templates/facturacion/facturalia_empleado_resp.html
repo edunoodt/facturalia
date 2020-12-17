@@ -1,0 +1,57 @@
+{% extends 'facturacion/facturalia_Base.html' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Facturalia</title>
+        <meta charset="utf-8">
+    </head>  
+    <body>
+    {% block titulo %}
+    <h3>RR-HH: LISTADO DE EMPLEADOS</h3>
+    {% endblock%}
+    {% block contenido %}
+    <p>Listado de contactos</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{formulario}}
+        <input type="submit" value="Consultar">
+    </form>
+    <table>
+        <tr>
+            <th>Apellido</th>
+            <th>Nombre</th>
+            <th>email</th>
+            <th>Fech.Nac.</th>
+            <th>Esposa</th>
+            <th>Hijos</th>
+            <th>Calle</th>
+            <th>ciudad</th>
+            <th>Provincia</th>
+            <th>pais</th>
+            <th>Cod.Post</th>
+        </tr>
+        
+        {% for renglon in lista %}
+        {% if renglon.empleado %}
+        <tr>
+            <td>{{renglon.apellido}}</td>
+            <td>{{renglon.nombre}}</td>
+            <td>{{renglon.mail}}</td>
+            <td>{{renglon.nacimiento}}</td>
+            <td>{{renglon.esposa}}</td>
+            <td>{{renglon.hijos}}</td>
+            <td>{{renglon.direccion}}</td>
+            <td>{{renglon.ciudad}}</td>
+            <td>{{renglon.provincia}}</td>
+            <td>{{renglon.pais}}</td>
+            <td>{{renglon.codpost}}</td>
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+    {% endblock%}
+    
+    </body>
+
+</html>

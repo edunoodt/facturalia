@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Facturalia</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static "css/estilos.css" %}">
+        <meta http-equiv="Expires" content="0">
+        <meta http-equiv="Last-Modified" content="0">
+        <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <img id="logo" src="{% static "imagenes/aguila.jpg" %}" alt="Aguila" height="50">
+                <nav class= 'titulo'>
+                    <h1>PROVEEDORA DEL SUR</h1>
+                    <h4>FACTURALIA - Sistema de gestión de productos y Facturación</h3>
+                </nav>
+            <nav>
+        </header>
+        <section>
+            {% block titulo %}
+            {% endblock%}
+            <nav id='menu01'>
+                <ul>
+                    <li><a href="..">Inicio</a></li>
+                    <li><a href="../empresas">Empresas</a></li>
+                    <li><a href="../contactos">Contactos</a></li>
+                    <li><a href="../productos">Productos</a></li>
+                    <li><a href="../RRHH">RRHH: Empleados</a></li>
+                    
+                </ul>
+            </nav>
+
+            <nav>
+                {% block contenido %}
+                {% endblock%}
+            </nav>
+        </section>
+
+    </body>
+</html>
